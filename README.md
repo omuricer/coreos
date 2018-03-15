@@ -18,8 +18,8 @@ Mailing list: [coreos-dev](https://groups.google.com/forum/#!forum/coreos-dev)
 2) Clone this project and get it running!
 
 ```
-git clone https://github.com/coreos/coreos-vagrant/
-cd coreos-vagrant
+git clone http://10.2.66.60/gitlab/docker/coreos.git
+cd coreos
 ```
 
 3) Startup and SSH
