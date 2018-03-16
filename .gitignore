@@ -7,5 +7,4 @@ config.ign.merged
 *.vmdk
 *.img
 htdocs/web/*
-htdocs/mysql/*
 !.gitkeep
