@@ -6,5 +6,4 @@ config.ign
 config.ign.merged
 *.vmdk
 *.img
-htdocs/web/*
-!.gitkeep
+webapp
