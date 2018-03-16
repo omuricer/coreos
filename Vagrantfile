@@ -156,8 +156,8 @@ Vagrant.configure("2") do |config|
       config.ignition.ip = ip
 
       # Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
-      config.vm.synced_folder "./webapp", "/home/core/voluems/webapp", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
-      config.vm.synced_folder "./mysql", "/home/core/voluems/mysql", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder "./htdocs/web", "/home/core/voluems/web", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder "./htdocs/mysql", "/home/core/voluems/mysql", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
 
       $shared_folders.each_with_index do |(host_folder, guest_folder), index|
         config.vm.synced_folder host_folder.to_s, guest_folder.to_s, id: "core-share%02d" % index, nfs: true, mount_options: ['nolock,vers=3,udp']
