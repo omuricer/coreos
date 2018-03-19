@@ -140,9 +140,9 @@ Vagrant.configure("2") do |config|
 
       config.vm.network :private_network, type: "dhcp", ip: ip
       config.vm.network :public_network, type: "dhcp"
-      config.vm.network :forwarded_port, host: 80, guest: 80
+      #config.vm.network :forwarded_port, host: 80, guest: 80
       config.vm.network :forwarded_port, host: 3306, guest: 3306
-      config.vm.network :forwarded_port, host: 50080, guest: 50080
+      config.vm.network :forwarded_port, host: 50080, guest: 80
       config.vm.network :forwarded_port, host: 50081, guest: 50081
       config.vm.provision :shell, path: "bootstrap.sh"
 
@@ -156,7 +156,7 @@ Vagrant.configure("2") do |config|
       config.ignition.ip = ip
 
       # Uncomment below to enable NFS for sharing the host machine into the coreos-vagrant VM.
-      config.vm.synced_folder "./webapp/public", "/home/core/webapp/public", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
+      config.vm.synced_folder "../webapp", "/home/core/webapp", id: "core", :nfs => true, :mount_options => ['nolock,vers=3,udp']
 
       $shared_folders.each_with_index do |(host_folder, guest_folder), index|
         config.vm.synced_folder host_folder.to_s, guest_folder.to_s, id: "core-share%02d" % index, nfs: true, mount_options: ['nolock,vers=3,udp']
